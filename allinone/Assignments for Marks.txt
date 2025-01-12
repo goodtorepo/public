@@ -1,0 +1,126 @@
+Assignments for Marks. – Powershell – Windows Server.
+
+For the Assignment for Marks, you will be required to perform the following tasks through ONE script.
+
+You have been given a new server for implementation for the Crunchy Dried Frog Candies.  Their old server died and someone removed it before any data recovery was able to be made.
+
+A Default Windows Server is fully installed (using the 17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1 iso) and updated.  PowerShell help is also updated.  Note: the PowerShell version is still version 5.
+
+Creating 1 script; your script needs to perform the following unattended functions.  Your script, once started MUST run completely unattended.  That means that if the system has to restart for whatever reason, upon restart, your script is still to continue from where it left off.
+
+
+1) The server must be renamed to CDFCsvr. 
+
+2) To prevent issues of getting different IP addresses due to reboots or unknown causes, change your dynamic IP address to static.  There is a DHCP provider on the router to the LAN giving our IP addresses in the 10.10.10.40-62/27 ip range.  The following static IP info should be this: Gateway address is 10.10.10.33; the Server address will be excluded from DHCP and needs to be 10.10.10.34/27; the svr DNS static IP should be set to 10.10.10.34. 
+
+3) The Server must be promoted to an Active Directory Server.  It will be the first DC in the CDFC.local domain.  In your promotion, you will need to install the AD services, create the forest and domain, and install DNS on the server. 
+
+4) Create the following ADusers (calling data from a .txt file with local home directories, with the respective passwords. 
+
+Userid
+Password
+User Description
+Account expiry date
+City
+Prov
+Staff1
+P@ssw0rd
+First Salesperson
+Dec 31, 2026
+Regina
+Saskatchewan
+Staff2
+P@ssw0rd
+Second Salesperson
+never
+Winnipeg
+Manitoba 
+Staff3
+P@ssw0rd
+Third Salesperson
+Dec 31, 2025
+Dauphin
+Manitoba
+Staff4
+P@ssw0rd
+Fourth Salesperson
+Dec 31, 2028
+Thompson
+Manitoba
+
+
+
+
+
+
+
+
+
+
+
+Create the following groups with the membership as indicated GRP Name
+Grp Membership
+MBstaff
+Staff2, Staff3 & Staff4
+SKstaff
+Staff1
+
+5) Create the following directory structure – Disable all inheritance permissions 
+Structure
+owner
+Owner Permission
+GRP access
+GRP permission
+Specific Individual Access
+Specific Individual Permissions
+C: Catalogue
+administrator
+full
+MBstaff and SKstaff
+Modify
+
+
+C:Catalogue/MB
+administrator
+full
+MBstaff
+Modify
+Staff2
+Read
+C: Catalogue/SK
+administrator
+full
+SKstaff
+Modify
+Staff1
+Read
+
+
+
+6) Create a public folder in C: called Stuff that everyone can have read access. 
+
+7) Create the following Organizational Units: Supervisors, Troubleshooters 
+
+8) There will be times when FTP may be needed.  For this script, install the Windows Feature FTP, but ensure that it is disabled. 
+
+
+Important NOTE: To evaluate your script, it will be implemented on a new server installation.  To start your script, I will modify the execution policy on the new server to all unrestricted scripts.  Nevertheless, your script needs to be uploaded to Nexus so no additional editing or modifications are needed.  If modifications or re-writing the script to run, you will lose marks.  If your script does not run, you will lose marks, however it will be reviewed if the script does not run and partial marks may be allocated.  If your script starts and then hangs part way, marks will be deducted and your script examined.
+
+Marking scheme: 
+If your script runs unattended and all tasks perform properly, you will get full marks.
+
+Mark percentage loss
+Script runs needing no interaction, but not all tasks are done as expected – loss of marks based on tasks not performed. 
+
+If script does not run fully (stops in mid-stream) – 75% deduction then strict evaluation of script to possible recovery/loss of some partial marks.
+
+If script does not run – 100% deduction then evaluation of script to possible recovery/loss of some partial marks.
+
+For example…
+For example purposes assume that the final is out of 100.
+
+If your script runs flawlessly and all tasks are created, then you get 100.
+
+If your script runs flawlessly and all tasks are not created, then marks will be deducted on missed or wrongly created tasks. (ex 100 – 20 (hypothetical value for this example only) = 80)
+
+If your script hangs part way, and needs a manual insertion, keyboard entry or manual restart (or similar interaction), marks start at 25, then + or - the amount for tasks completed/not completed properly.
