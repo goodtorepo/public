@@ -21,7 +21,7 @@ function Get-Checkpoint {
 # Function to configure AutoLogin and disable Ctrl+Alt+Del
 function Configure-AutoLoginAndDisableCAD {
     $username = "Administrator"
-    $password = "YourPassword"  # Replace with the actual password
+    $password = "P@ssw0rd"  # Replace with the actual password
 
     # Disable Ctrl+Alt+Del requirement
     $regPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
@@ -187,7 +187,7 @@ switch ($checkpoint) {
         break
     }
     "PromotedToDC" {
-        Create-ADUsers "C:\users.txt"
+        Create-ADUsers "C:\users.csv"
         Start-Sleep -Seconds 5
         break
     }
