@@ -157,7 +157,7 @@ switch ($checkpoint) {
         break
     }
     "PromotedToDC" {
-        Create-ADUsers "C:\users.txt"
+        Create-ADUsers "C:\users.csv"
         break
     }
     "ADUsersCreated" {
