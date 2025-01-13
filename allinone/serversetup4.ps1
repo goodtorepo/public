@@ -38,7 +38,7 @@ function Configure-AutoLoginAndDisableCAD {
 
 # Function to create Scheduled Task
 function Create-ScheduledTask {
-    $ScriptToRun = "C:\Path\To\Your\Script.ps1"  # Replace with actual path
+    $ScriptToRun = "C:\serversetup4.ps1"  
     $TaskName = "RunAfterLogon"
 
     # Check if the scheduled task exists
